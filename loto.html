@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> LOTO </title>
+    <style>
+        /*prednastavitev za celo stran */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        /*noga zatemnitev */
+        .footer {
+            text-align:center;
+            background-color: black;
+            opacity: 0.7;
+            color: wheat;
+            padding: 2rem;
+        }
+        /* ozadje nastavitev na celo stran */
+        .all {
+            padding: 0;
+            margin: 0;
+            background:url('https://images.unsplash.com/photo-1518688248740-7c31f1a945c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80') no-repeat center center/cover;
+            height: 100vh;
+        }
+        .content  {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding:2 rem;
+            opacity: 0.9;
+            height:50vh;
+
+        }
+        /* klasa za zogico */
+        .zogica {
+            display: flex; 
+            justify-content: center; 
+            align-items: center;  
+            border: solid black 3px; 
+            border-radius:50%;
+            width: 5rem;
+            height: 5rem;
+            opacity: 0.9;
+            background-color: black;
+        }
+        /*klasa za centrirat & oblikvat številko */
+        .stevilka {
+            box-sizing: border-box; 
+            color:white;
+            font-weight: bold;
+            opacity: 0.7;
+        }
+        #dodatna {
+            background-color: rgb(70, 150, 150);
+        }
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            font-size: 4rem;
+            padding: 2rem;
+            color: blueviolet;
+            animation: naslov 3s infinite; /* urejanje animacije */
+            background-color: black;
+            opacity: 0.7;
+        }
+        /* podrobnosti animacije */
+        @keyframes naslov {
+            0% {color:palegreen;}
+            50% { color:blueviolet;}
+            100% { color:greenyellow;}
+        }
+    </style>
+</head>
+<body>
+    <div class="all">
+        <h1>LOTERIJA</h1>
+        <div class="content">
+            <script type="text/javascript">
+            for(i=0; i<8; i++) {
+                //zapiše naključno vrednost med 0 in 1
+                    var osnova = Math.random();
+                // definiramo najnižje število
+                var min = 1;
+                // Definiramo najvišje število 
+                var max = 39;
+                //izračunamo št vrednosti , kijh želimo dobiti
+                var stVrednosti = max-min+1;
+                // izračunamo naključno št. med 0 in najvišjim št.
+                var stevilo = Math.floor(osnova * stVrednosti) + min;
+
+                //ce je številka dodatna (8. po vrsti) jo izpiše rdeče
+                if(i == 7) {
+                    document.write('<div id="dodatna" class="zogica">'+'<div class="stevilka">'+stevilo+'</div> '+'</div>');
+                }
+                //sicer jo izpšiše navadno - zeleno
+                else {
+                    document.write('<div class="zogica">'+'<div class="stevilka">'+stevilo+'</div>'+ '</div>');
+                } //konec else
+                }//konec for
+            </script>
+        </div>
+        <div class="footer">
+            Skupni znesek : 5000.000 €| Loterija Azkabarja 2009  Copyright &copy
+        </div>
+    </div>
+</body>
+</html>
